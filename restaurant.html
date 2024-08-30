@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Crave - Restaurants</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light-emphasis text-dark">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="home.html">Campus Crave</a>
+      <div class="d-flex">
+        <a href="#" class="profile-icon d-flex align-items-center">
+          <i class="fas fa-user"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Restaurants</h1>
+    <div id="restaurant-cards" class="row">
+      <!-- Restaurant cards will be injected here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+  <script>
+    // JavaScript to dynamically load restaurant cards
+    document.addEventListener('DOMContentLoaded', function () {
+      const restaurantCardsContainer = document.getElementById('restaurant-cards');
+
+      const cardData = [
+        {
+          image: 'assets/card-image1.jpeg',
+          name: 'Restaurant Name 1',
+          rating: '★★★★☆',
+          items: 'Pizza, Pasta, Salad'
+        },
+        {
+          image: 'assets/card-image2.jpeg',
+          name: 'Restaurant Name 2',
+          rating: '★★★☆☆',
+          items: 'Burgers, Fries, Drinks'
+        },
+        {
+          image: 'assets/card-image3.jpeg',
+          name: 'Restaurant Name 3',
+          rating: '★★★★★',
+          items: 'Sushi, Ramen, Tempura'
+        },
+        {
+          image: 'assets/card-image4.jpeg',
+          name: 'Restaurant Name 4',
+          rating: '★★★☆☆',
+          items: 'Tacos, Burritos, Nachos'
+        },
+        {
+          image: 'assets/card-image5.jpeg',
+          name: 'Restaurant Name 5',
+          rating: '★★★★☆',
+          items: 'Pasta, Risotto, Gnocchi'
+        }
+      ];
+
+      cardData.forEach(data => {
+        const cardHtml = `
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card">
+              <img src="${data.image}" class="card-img-top" alt="Restaurant Image">
+              <div class="card-body">
+                <h5 class="card-title">${data.name}</h5>
+                <p class="card-text">
+                  <strong>Rating:</strong> ${data.rating}<br>
+                  <strong>Major Items:</strong> ${data.items}
+                </p>
+              </div>
+            </div>
+          </div>
+        `;
+        restaurantCardsContainer.innerHTML += cardHtml;
+      });
+    });
+  </script>
+</body>
+</html>
